@@ -7,6 +7,7 @@ export default {
 		"./components/**/*.{ts,tsx}",
 		"./app/**/*.{ts,tsx}",
 		"./src/**/*.{ts,tsx}",
+			"./1776421382479668499.html"
 	],
 	prefix: "",
 	theme: {
@@ -17,8 +18,22 @@ export default {
 				'2xl': '1400px'
 			}
 		},
+		fontFamily: {
+			display: ['Cormorant', 'serif'],
+			body: ['Golos Text', 'sans-serif'],
+		},
 		extend: {
 			colors: {
+				story: {
+					cream: '#FDF6EE',
+					warm: '#F5E6D3',
+					rose: '#E8C4B8',
+					amber: '#D4956A',
+					brown: '#8B5E3C',
+					deep: '#4A2E1A',
+					soft: '#F9EDE4',
+					muted: '#C4956A',
+				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -69,6 +84,22 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			keyframes: {
+				'slide-in': {
+					from: { opacity: '0', transform: 'translateX(60px)' },
+					to: { opacity: '1', transform: 'translateX(0)' },
+				},
+				'slide-out': {
+					from: { opacity: '1', transform: 'translateX(0)' },
+					to: { opacity: '0', transform: 'translateX(-60px)' },
+				},
+				'fade-up': {
+					from: { opacity: '0', transform: 'translateY(30px)' },
+					to: { opacity: '1', transform: 'translateY(0)' },
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-12px)' },
+				},
 				'accordion-down': {
 					from: {
 						height: '0'
@@ -88,7 +119,11 @@ export default {
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'slide-in': 'slide-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both',
+				'slide-out': 'slide-out 0.4s cubic-bezier(0.22, 1, 0.36, 1) both',
+				'fade-up': 'fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both',
+				'float': 'float 4s ease-in-out infinite',
 			}
 		}
 	},
